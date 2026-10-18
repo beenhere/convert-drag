@@ -113,7 +113,7 @@ const MULTI_TOOLS = {
 };
 
 const PDFABLE = new Set(['image', 'pdf', 'doc']);
-const MAX_WEDGES = 8;
+const MAX_WEDGES = 9;
 
 const extIndex = new Map();
 const mimeIndex = new Map();
@@ -187,7 +187,7 @@ function menuFor(formats) {
   const targets = TARGETS[kind].filter((t) => t !== sameFormat);
   const tools = [...KIND_TOOLS[kind]];
   if (count > 1) {
-    for (const t of MULTI_TOOLS[kind]) if (!tools.includes(t)) tools.unshift(t);
+    tools.unshift(...MULTI_TOOLS[kind].filter((t) => !tools.includes(t)));
     // Editors work on one file at a time.
     for (let i = tools.length - 1; i >= 0; i--) if (TOOLS[tools[i]].editor) tools.splice(i, 1);
   }

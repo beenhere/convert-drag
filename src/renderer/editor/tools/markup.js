@@ -183,8 +183,10 @@ export function mount({ info, tool, stage, controls }) {
       shapes = [];
       render();
     },
-    demo() {
-      if (redact) {
+    demo(given) {
+      if (Array.isArray(given)) {
+        shapes = given;
+      } else if (redact) {
         shapes = [
           { type: 'redact', style: 'solid', x: W * 0.15, y: H * 0.2, w: W * 0.35, h: H * 0.06 },
           { type: 'redact', style: 'pixelate', x: W * 0.15, y: H * 0.35, w: W * 0.45, h: H * 0.12 },

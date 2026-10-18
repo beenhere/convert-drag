@@ -127,5 +127,14 @@ export function mount({ info, stage, controls }) {
       ratio.set(p.ratio);
       draw();
     },
+    demo(over) {
+      p = { ...defaults(), ...over };
+      if (typeof p.background === 'number') p.background = { type: 'gradient', stops: GRADIENTS[p.background], angle: 135 };
+      pad.set(p.padding);
+      corners.set(p.radius);
+      shadow.set(p.shadow);
+      ratio.set(p.ratio);
+      draw();
+    },
   };
 }

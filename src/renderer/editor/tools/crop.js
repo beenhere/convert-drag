@@ -208,8 +208,12 @@ export function mount({ info, stage, controls }) {
       rect = { x: 0, y: 0, w: W, h: H };
       draw();
     },
-    demo() {
-      rect = { x: W * 0.12, y: H * 0.1, w: W * 0.6, h: H * 0.7 };
+    demo(r) {
+      if (r?.ratio) {
+        ratioKey = r.ratio;
+        seg.set(r.ratio);
+      }
+      rect = r?.rect ? { ...r.rect } : { x: W * 0.12, y: H * 0.1, w: W * 0.6, h: H * 0.7 };
       draw();
     },
   };

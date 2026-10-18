@@ -210,9 +210,10 @@ export function mount({ info, stage, controls, setStatus }) {
       end = duration;
       draw();
     },
-    demo() {
-      start = duration * 0.2;
-      end = duration * 0.75;
+    demo(range) {
+      start = duration * (range?.start ?? 0.2);
+      end = duration * (range?.end ?? 0.75);
+      if (!still && player.readyState >= 1) player.currentTime = start + (end - start) * 0.4;
       draw();
     },
   };

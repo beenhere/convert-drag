@@ -116,11 +116,11 @@ export function mount({ info, stage, controls }) {
       lock.checked = true;
       draw();
     },
-    demo() {
-      p.saturation = -40;
-      p.contrast = 20;
-      sat.set(-40);
-      contrast.set(20);
+    demo(over = { saturation: -40, contrast: 20 }) {
+      Object.assign(p, over);
+      bright.set(p.brightness);
+      contrast.set(p.contrast);
+      sat.set(p.saturation);
       draw();
     },
   };
