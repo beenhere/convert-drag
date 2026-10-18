@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ConvertDrag</title>
+    <link rel="stylesheet" href="../shared/ui.css" />
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <img class="logo" src="../shared/logo.svg" alt="" width="56" height="56" />
+        <div>
+          <h1>ConvertDrag <span class="version" id="version"></span></h1>
+          <p class="lead">Hold <kbd id="mod-key">Shift</kbd> while dragging any file to convert, compress, crop or merge it. Everything stays on this computer.</p>
+        </div>
+      </header>
+
+      <section class="card warn" id="permission" hidden>
+        <div>
+          <strong>Allow Accessibility access</strong>
+          <p>macOS needs this so ConvertDrag can notice <kbd class="mod-name">Shift</kbd> + drag in other apps. Turn on ConvertDrag in System Settings → Privacy &amp; Security → Accessibility.</p>
+        </div>
+        <button class="btn primary" id="open-permissions">Open System Settings</button>
+      </section>
+
+      <section class="steps" aria-label="How it works">
+        <div class="step"><span>1</span>Start dragging a file</div>
+        <div class="step"><span>2</span>Press <kbd class="mod-name">Shift</kbd></div>
+        <div class="step"><span>3</span>Drop it on an option</div>
+      </section>
+
+      <section class="card form">
+        <label class="row">
+          <span class="label">Enabled</span>
+          <span class="grow muted">Show the menu when you drag with the trigger key</span>
+          <input type="checkbox" class="switch" id="enabled" />
+        </label>
+        <div class="row">
+          <span class="label">Trigger key</span>
+          <div class="seg" id="modifier" role="group" aria-label="Trigger key"></div>
+        </div>
+        <div class="row">
+          <span class="label">Save files</span>
+          <div class="seg" id="output" role="group" aria-label="Where to save">
+            <button type="button" data-v="same">Next to original</button>
+            <button type="button" data-v="folder">In a folder</button>
+          </div>
+        </div>
+        <div class="row" id="folder-row">
+          <span class="label"></span>
+          <span class="grow path" id="folder">No folder chosen</span>
+          <button class="btn" id="choose">Choose…</button>
+        </div>
+        <div class="row">
+          <span class="label">JPEG quality</span>
+          <input type="range" id="quality" min="50" max="100" step="1" />
+          <span class="value" id="quality-value"></span>
+        </div>
+        <label class="row">
+          <span class="label">Notifications</span>
+          <span class="grow muted">Tell me when a conversion fails or an editor saves</span>
+          <input type="checkbox" class="switch" id="notifications" />
+        </label>
+        <label class="row">
+          <span class="label">Reveal result</span>
+          <span class="grow muted" id="reveal-text">Show the new file in the file manager</span>
+          <input type="checkbox" class="switch" id="reveal" />
+        </label>
+        <label class="row" id="login-row">
+          <span class="label">Open at login</span>
+          <span class="grow muted">Start ConvertDrag when you sign in</span>
+          <input type="checkbox" class="switch" id="login" />
+        </label>
+      </section>
+
+      <footer class="foot">
+        <span id="status-line"></span>
+        <a href="#" id="github">Source code · MIT license</a>
+      </footer>
+    </main>
+    <script src="settings.js"></script>
+  </body>
+</html>

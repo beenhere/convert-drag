@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ConvertDrag</title>
+    <link rel="stylesheet" href="overlay.css" />
+  </head>
+  <body>
+    <div id="stage" data-mode="idle">
+      <div id="menu" aria-live="polite">
+        <div class="rim"></div>
+        <div id="pages"></div>
+        <svg id="dwell" width="440" height="440" viewBox="0 0 440 440" aria-hidden="true">
+          <circle cx="220" cy="220" r="57" />
+        </svg>
+        <div id="hub">
+          <svg id="progress" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="track" cx="60" cy="60" r="52" />
+            <circle class="bar" cx="60" cy="60" r="52" />
+          </svg>
+          <div class="hub-icon"></div>
+          <div class="hub-title"></div>
+          <div class="hub-sub"></div>
+          <div class="hub-dots"></div>
+        </div>
+      </div>
+    </div>
+    <script src="../shared/icons.js"></script>
+    <script src="overlay.js"></script>
+  </body>
+</html>

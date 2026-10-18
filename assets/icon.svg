@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb35c"/>
+      <stop offset=".55" stop-color="#ff5a1f"/>
+      <stop offset="1" stop-color="#ee3a6a"/>
+    </linearGradient>
+    <radialGradient id="shine" cx=".3" cy=".2" r=".9">
+      <stop offset="0" stop-color="#fff" stop-opacity=".35"/>
+      <stop offset=".6" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="64" y="64" width="896" height="896" rx="200" fill="url(#bg)"/>
+  <rect x="64" y="64" width="896" height="896" rx="200" fill="url(#shine)"/>
+  <g opacity=".62"><path d="M342.91 185.15 A368 368 0 0 1 681.09 185.15 L605.96 315.29 A218 218 0 0 0 418.04 315.29 Z" fill="#fff" stroke="#fff" stroke-width="26" stroke-linejoin="round"/><path d="M879.61 528.99 A368 368 0 0 1 710.52 821.86 L635.38 691.73 A218 218 0 0 0 729.34 528.98 Z" fill="#fff" stroke="#fff" stroke-width="26" stroke-linejoin="round"/><path d="M681.09 838.85 A368 368 0 0 1 342.91 838.85 L418.04 708.71 A218 218 0 0 0 605.96 708.71 Z" fill="#fff" stroke="#fff" stroke-width="26" stroke-linejoin="round"/><path d="M313.48 821.86 A368 368 0 0 1 144.39 528.99 L294.66 528.98 A218 218 0 0 0 388.62 691.73 Z" fill="#fff" stroke="#fff" stroke-width="26" stroke-linejoin="round"/><path d="M144.39 495.01 A368 368 0 0 1 313.48 202.14 L388.62 332.27 A218 218 0 0 0 294.66 495.02 Z" fill="#fff" stroke="#fff" stroke-width="26" stroke-linejoin="round"/></g><path d="M710.52 202.14 A368 368 0 0 1 879.61 495.01 L729.34 495.02 A218 218 0 0 0 635.38 332.27 Z" fill="#fff" stroke="#fff" stroke-width="26" stroke-linejoin="round"/>
+  <circle cx="512" cy="512" r="150" fill="#fff"/>
+  <g fill="none" stroke="#ff5a1f" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M440 480 h140 l-40 -40"/>
+    <path d="M584 544 h-140 l40 40"/>
+  </g>
+</svg>

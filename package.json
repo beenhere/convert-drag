@@ -1,0 +1,187 @@
+{
+  "name": "convert-drag",
+  "productName": "ConvertDrag",
+  "version": "0.1.0",
+  "description": "Convert, compress, crop and merge files by Shift-dragging them onto a radial menu. Everything runs locally.",
+  "main": "src/main/index.js",
+  "license": "MIT",
+  "author": "ConvertDrag contributors",
+  "homepage": "https://github.com/beenhere/convert-drag",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beenhere/convert-drag.git"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test \"test/*.test.js\"",
+    "test:electron": "electron test/electron/run.js",
+    "icons": "node scripts/make-icons.js",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux",
+    "screenshots": "electron scripts/screenshots.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "docx": "^9.12.0",
+    "exceljs": "^4.4.0",
+    "ffmpeg-static": "^5.3.0",
+    "heic-decode": "^2.1.0",
+    "html-to-text": "^10.0.1",
+    "htmlparser2": "^10.1.0",
+    "jszip": "^3.10.2",
+    "mammoth": "^1.13.0",
+    "marked": "^18.1.1",
+    "papaparse": "^5.7.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.4.299",
+    "sharp": "^0.35.5",
+    "turndown": "^7.2.4",
+    "uiohook-napi": "^1.5.5"
+  },
+  "devDependencies": {
+    "electron": "^44.5.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.convertdrag.app",
+    "productName": "ConvertDrag",
+    "copyright": "Copyright © ConvertDrag contributors",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json",
+      "!**/*.map",
+      "!**/*.md",
+      "!**/*.d.ts",
+      "!**/*.d.mts",
+      "!node_modules/@napi-rs/**",
+      "!node_modules/pdfjs-dist/{build,web,types,image_decoders}/**",
+      "!node_modules/uiohook-napi/{libuiohook,src}/**",
+      "!node_modules/@img/*musl*/**"
+    ],
+    "asarUnpack": [
+      "node_modules/ffmpeg-static/**",
+      "node_modules/sharp/**",
+      "node_modules/@img/**",
+      "node_modules/uiohook-napi/**"
+    ],
+    "npmRebuild": false,
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        {
+          "target": "dmg"
+        },
+        {
+          "target": "zip"
+        }
+      ],
+      "extendInfo": {
+        "LSUIElement": true,
+        "CFBundleDocumentTypes": [
+          {
+            "CFBundleTypeName": "Image",
+            "CFBundleTypeRole": "Viewer",
+            "LSHandlerRank": "Alternate",
+            "LSItemContentTypes": [
+              "public.image"
+            ]
+          },
+          {
+            "CFBundleTypeName": "Movie",
+            "CFBundleTypeRole": "Viewer",
+            "LSHandlerRank": "Alternate",
+            "LSItemContentTypes": [
+              "public.movie"
+            ]
+          },
+          {
+            "CFBundleTypeName": "Audio",
+            "CFBundleTypeRole": "Viewer",
+            "LSHandlerRank": "Alternate",
+            "LSItemContentTypes": [
+              "public.audio"
+            ]
+          },
+          {
+            "CFBundleTypeName": "PDF",
+            "CFBundleTypeRole": "Viewer",
+            "LSHandlerRank": "Alternate",
+            "LSItemContentTypes": [
+              "com.adobe.pdf"
+            ]
+          },
+          {
+            "CFBundleTypeName": "Document",
+            "CFBundleTypeRole": "Viewer",
+            "LSHandlerRank": "Alternate",
+            "LSItemContentTypes": [
+              "org.openxmlformats.wordprocessingml.document",
+              "net.daringfireball.markdown",
+              "public.plain-text",
+              "public.html"
+            ]
+          },
+          {
+            "CFBundleTypeName": "Data",
+            "CFBundleTypeRole": "Viewer",
+            "LSHandlerRank": "Alternate",
+            "LSItemContentTypes": [
+              "public.comma-separated-values-text",
+              "public.json",
+              "org.openxmlformats.spreadsheetml.sheet"
+            ]
+          }
+        ]
+      },
+      "artifactName": "${productName}-${version}-mac-${arch}.${ext}"
+    },
+    "dmg": {
+      "title": "${productName} ${version}"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-${version}-win-${arch}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-win-${arch}-portable.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "include": "build/installer.nsh",
+      "shortcutName": "ConvertDrag"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "maintainer": "ConvertDrag contributors",
+      "artifactName": "${productName}-${version}-linux-${arch}.${ext}"
+    }
+  }
+}
