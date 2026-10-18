@@ -63,7 +63,8 @@
       "!**/*.d.mts",
       "!node_modules/@napi-rs/**",
       "!node_modules/pdfjs-dist/{build,web,types,image_decoders}/**",
-      "!node_modules/uiohook-napi/{libuiohook,src}/**"
+      "!node_modules/uiohook-napi/{libuiohook,src}/**",
+      "!node_modules/@img/*musl*/**"
     ],
     "asarUnpack": [
       "node_modules/ffmpeg-static/**",
@@ -179,10 +180,7 @@
       ],
       "category": "Utility",
       "maintainer": "ConvertDrag contributors",
-      "artifactName": "${productName}-${version}-linux-${arch}.${ext}",
-      "files": [
-        "!node_modules/@img/*musl*/**"
-      ]
+      "artifactName": "${productName}-${version}-linux-${arch}.${ext}"
     }
   }
 }
