@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ConvertDrag</title>
+    <link rel="stylesheet" href="../shared/ui.css" />
+    <link rel="stylesheet" href="editor.css" />
+  </head>
+  <body>
+    <div class="editor">
+      <header class="topbar">
+        <div class="title" id="title"></div>
+        <div class="file" id="file"></div>
+      </header>
+      <main id="stage" class="stage"></main>
+      <section id="controls" class="controls"></section>
+      <footer class="actions">
+        <button id="reset" class="btn">Reset</button>
+        <div class="status" id="status" role="status"></div>
+        <button id="cancel" class="btn">Cancel</button>
+        <button id="save" class="btn primary">Save</button>
+      </footer>
+    </div>
+    <script src="../shared/icons.js"></script>
+    <script src="../shared/markup-svg.js"></script>
+    <script type="module" src="editor.js"></script>
+  </body>
+</html>
